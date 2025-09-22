@@ -47,15 +47,15 @@
 <section id="about" class="bg-stone py-20 px-6 text-center border-t-2 border-b-2 border-slate md:text-left md:px-20">
     <h2 class="mb-6">Om mig</h2>
     <p class="text-slate max-w-2xl mx-auto mb-2 md:mx-0 leading-relaxed">
-        Jag har arbetat som gymnasielärare i 15 år innan jag bytte bana till frontendutveckling. 
-        Pedagogiken har gett mig ett unikt sätt att förklara komplexa idéer och bygga användarvänliga lösningar.  
+        Jag har jobbat som gymnasielärare i 15 år innan jag bytte bana till frontendutveckling. 
+        Pedagogiken har gett mig verktygen att på ett unikt sätt förklara komplexa idéer och bygga användarvänliga lösningar.  
         Idag kombinerar jag min känsla för struktur och lärande med en passion för kod och design.
         Jag driver även en verksamhet som hälsoinspiratör där jag hjälper människor att hitta balans i livet genom kost, träning och mental hälsa.
     </p>
     <p class="text-slate max-w-2xl mx-auto md:mx-0 leading-relaxed">
-        Utanför arbetet är jag en kreativ person som gärna använder löpning för att rensa huvudet och väcka nya idéer. 
-        Jag uppskattar också handarbete, framför allt stickning och virkning, som ger mig en avkopplande och närvarande motvikt till skärmjobb. 
-        Denna balans mellan fysisk aktivitet, natur och hantverk formar mitt sätt att arbeta och leva — enkelhet, fokus och kreativitet.
+        Utanför arbetet är jag en kreativ person som löptränar för att rensa huvudet och väcka nya idéer. 
+        Jag uppskattar också handarbete, framför allt stickning och virkning, som ger mig en avkopplande och närvarande motvikt till allt skärmjobb. 
+        Den här balansen mellan fysisk aktivitet, natur och hantverk formar mitt sätt att arbeta och leva — enkelhet, fokus och kreativitet.
     </p>
     
 </section>
