@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-slate: #2D2C2A;
+    --color-oat: #EBEBEB;
+    --color-moss: #7C806F;
+    --color-clay: #A78C79;
+    --color-stone: #C7C2BC;
+
+    --font-body: 'Quicksand', sans-serif;
+    --font-heading: "Carter One", cursive;
+}
+
+body {
+    @apply font-body text-slate bg-oat;
+}
+
+h2 {
+    @apply font-heading text-3xl text-clay;
+}
+
+h3 {
+    @apply font-heading text-xl text-moss;
+}
