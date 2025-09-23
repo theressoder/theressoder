@@ -50,12 +50,12 @@
         Jag har jobbat som gymnasielärare i 15 år innan jag bytte bana till frontendutveckling. 
         Pedagogiken har gett mig verktygen att på ett unikt sätt förklara komplexa idéer och bygga användarvänliga lösningar.  
         Idag kombinerar jag min känsla för struktur och lärande med en passion för kod och design.
-        Jag driver även en verksamhet som hälsoinspiratör där jag hjälper människor att hitta balans i livet genom kost, träning och mental hälsa.
+        Jag driver även en sidoverksamhet som hälsoinspiratör där jag genom personliga möten informerar och inspirerar människor att hitta balans i livet genom kost, träning och mental hälsa.
     </p>
     <p class="text-slate max-w-2xl mx-auto md:mx-0 leading-relaxed">
         Utanför arbetet är jag en kreativ person som löptränar för att rensa huvudet och väcka nya idéer. 
         Jag uppskattar också handarbete, framför allt stickning och virkning, som ger mig en avkopplande och närvarande motvikt till allt skärmjobb. 
-        Den här balansen mellan fysisk aktivitet, natur och hantverk formar mitt sätt att arbeta och leva — enkelhet, fokus och kreativitet.
+        Den här balansen mellan fysisk aktivitet, teknik och hantverk formar mitt sätt att arbeta och leva — enkelhet, fokus och kreativitet.
     </p>
     
 </section>
