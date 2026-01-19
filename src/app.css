@@ -1,24 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-slate: #2D2C2A;
-    --color-oat: #EBEBEB;
-    --color-moss: #7C806F;
-    --color-clay: #A78C79;
-    --color-stone: #C7C2BC;
+    --color-ink: #5d5a53;
+    --color-muted: #959595;
+    --color-accent: #95c8cc;
+    --color-accent-soft: #b9cece;
+    --color-paper: #e5e3de;
 
-    --font-body: 'Quicksand', sans-serif;
-    --font-heading: "Carter One", cursive;
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: "DM Sans", sans-serif;
 }
 
 body {
-    @apply font-body text-slate bg-oat;
+    @apply font-body text-ink bg-paper;
+}
+
+p {
+    @apply leading-relaxed;
 }
 
 h2 {
-    @apply font-heading text-3xl text-clay;
+  @apply font-heading text-3xl text-ink;
 }
 
 h3 {
-    @apply font-heading text-xl text-moss;
+  @apply font-heading text-xl text-accent;
 }
