@@ -1,5 +1,11 @@
-<script>
-    const profileImg = '/profile.jpg';
+<script lang="ts">
+    import SkillCategory from '$lib/components/SkillCategory.svelte';
+    
+    const techSkills = ["React", "Javascript (ES6+)", "CSS/HTML", "WCAG & Tillgänglighet", "Agila metoder", "Frontend Architecture"];
+    const pedaSkills = ["Coaching", "Kursdesign", "Mentorskap", "Lärandeanalys", "Individuell vägledning", "Retorik"];
+    const tools = ["VS Code", "Git / GitHub", "Figma", "Jira / Azure DevOps", "LMS-system", "Office 365"];
+    const heroImg = '/profile.jpg';
+    const aboutImg = '/profilbild.png';
 </script>
 
 <section class="relative bg-paper py-20 px-6 overflow-hidden">
@@ -16,7 +22,7 @@
                 Jag bygger broar mellan <span class="text-ink/80">människa, logik och teknik</span>
             </h1>
             
-            <p class="text-slate text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+            <p class="text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
                 Med rötterna i pedagogiken och erfarenhet som systemutvecklare skapar jag ordning i det komplexa. Som en <span class="font-semibold">analyserande görare</span> fokuserar jag på hållbara lösningar som är både lyhörda och prestigelösa.
             </p>
             
@@ -24,7 +30,7 @@
                 <a href="#projects"
                     class="w-full sm:w-auto text-center bg-ink border-2 border-ink text-paper font-bold px-8 py-4 rounded-full 
                     hover:bg-transparent hover:text-ink transition-all duration-300 shadow-lg hover:shadow-none">
-                    Se mina projekt
+                    Se min portfolio
                 </a>
                 <a href="#contact"
                     class="w-full sm:w-auto text-center bg-transparent border-2 border-ink text-ink font-bold px-8 py-4 rounded-full 
@@ -42,7 +48,7 @@
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
         
         <div class="w-full md:w-1/2 relative">
-            <div class="aspect-square bg-slate/10 rounded-2xl overflow-hidden border-2 border-ink/5 relative z-10 shadow-xl">
+            <div class="aspect-square bg-ink/10 rounded-2xl overflow-hidden border-2 border-ink/5 relative z-10 shadow-xl">
                 <img src="profilbild.png" alt="Theres Söder" class="w-full h-full object-cover">
             </div>
             <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent opacity-20 rounded-full blur-2xl z-0"></div>
@@ -53,9 +59,9 @@
             <span class="text-accent font-bold uppercase tracking-widest text-sm mb-4 block">Vem är jag?</span>
             <h2 class="text-4xl font-extrabold text-ink mb-8 leading-tight">En analyserande görare med hjärta för lärande</h2>
             
-            <div class="space-y-6 text-slate text-lg leading-relaxed">
+            <div class="space-y-6 text-ink/80 text-lg leading-relaxed">
                 <p>
-                    Min resa började i fascinationen för hur logik och naturvetenskap förklarar vår omvärld. Som lärare i fysik och matematik fick jag i 15 år vara den som guidade andra genom komplexa koncept. Men med tiden växte en nyfikenhet: jag ville inte bara förklara systemen, jag ville bygga dem. 
+                    Min resa började i fascinationen för hur logik och vetenskap förklarar vår omvärld. Som lärare i fysik och matematik fick jag i 15 år vara den som guidade andra genom komplexa koncept. Men med tiden växte en nyfikenhet: jag ville inte bara förklara systemen, jag ville bygga dem. 
                 </p>
 
                 <p>
@@ -65,12 +71,12 @@
                 <div class="bg-ink/5 p-6 rounded-xl border-l-4 border-accent my-8">
                     <h3 class="font-bold text-ink mb-2">Min drivkraft</h3>
                     <p class="text-base italic">
-                        Jag trivs som bäst i gränssnittet där jag får gå på djupet – gräva ner mig i dokumentation och förstå fundamenten – för att sedan rulla upp ärmarna och testa mig fram till vad som faktiskt fungerar i verkligheten.
+                        Jag trivs som bäst i gränssnittet där jag får gå på djupet, gräva ner mig i dokumentation och förstå fundamenten, för att sedan rulla upp ärmarna och testa mig fram till vad som faktiskt fungerar i verkligheten.
                     </p>
                 </div>
 
                 <p>
-                    Som kollega och medmänniska beskrivs jag ofta som <b>trygg, lyhörd och prestigelös</b>. Jag värdesätter ärlig kommunikation och tror på att de bästa resultaten föds när vi vågar lyssna på varandra och prestigelöst utvärdera våra metoder för att nå gemensamma mål.
+                    Som kollega och medmänniska beskrivs jag ofta som trygg, lyhörd och prestigelös. Jag värdesätter ärlig kommunikation och tror på att de bästa resultaten föds när vi vågar lyssna på varandra och prestigelöst utvärdera våra metoder för att nå gemensamma mål.
                 </p>
                 
                 <p>
@@ -88,7 +94,7 @@
         <div class="mb-16">
             <span class="text-accent font-bold uppercase tracking-widest text-sm mb-4 block">Portfolio</span>
             <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6">Från klassrum till kod</h2>
-            <p class="text-slate text-lg max-w-2xl leading-relaxed">
+            <p class="text-lg max-w-2xl leading-relaxed">
                 Här har jag samlat projekt och erfarenheter som speglar min resa. Det är i mötet mellan pedagogisk struktur, teknisk logik och individfokuserad vägledning som jag skapar bäst resultat.
             </p>
         </div>
@@ -102,7 +108,7 @@
                     </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-ink mb-4">Digital Utveckling</h3>
-                <p class="text-slate mb-6 flex-grow">
+                <p class="mb-6 flex-grow">
                     Erfarenhet av frontend-utveckling i komplexa system (MES). Mitt fokus ligger på skalbarhet, WCAG-tillgänglighet och att skapa en sömlös användarupplevelse genom logisk struktur.
                 </p>
                 <div class="space-y-2 mb-6">
@@ -110,7 +116,7 @@
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">UX/UI</span>
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">Accessibility</span>
                 </div>
-                <p class="text-sm italic text-slate border-t border-ink/5 pt-4">
+                <p class="text-sm italic border-t border-ink/5 pt-4">
                     "Jag gräver djupt i kraven för att bygga stabila flöden som tål att användas i verkligheten."
                 </p>
             </div>
@@ -122,7 +128,7 @@
                     </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-ink mb-4">Pedagogiskt Ledarskap</h3>
-                <p class="text-slate mb-6 flex-grow">
+                <p class="mb-6 flex-grow">
                     15 år som gymnasielärare har gett mig en djup förmåga att paketera och strukturera information. Jag har designat kursplaner och digitala läromedel som gör det svåra greppbart.
                 </p>
                 <div class="space-y-2 mb-6">
@@ -130,7 +136,7 @@
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">Digitalt lärande</span>
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">Struktur</span>
                 </div>
-                <p class="text-sm italic text-slate border-t border-ink/5 pt-4">
+                <p class="text-sm italic border-t border-ink/5 pt-4">
                     "Ordning och tydlighet är fundamentet för allt lärande och all utveckling."
                 </p>
             </div>
@@ -142,7 +148,7 @@
                     </svg>
                 </div>
                 <h3 class="text-2xl font-bold text-ink mb-4">Individuell Vägledning</h3>
-                <p class="text-slate mb-6 flex-grow">
+                <p class="mb-6 flex-grow">
                     Mitt förhållningssätt är coachande och individfokuserat. Jag brinner för att stötta människor i att hitta sin egen väg, vare sig det handlar om studier, arbetsliv eller personlig utveckling.
                 </p>
                 <div class="space-y-2 mb-6">
@@ -150,11 +156,44 @@
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">Mentorskap</span>
                     <span class="inline-block bg-ink/5 text-ink text-xs px-2 py-1 rounded">Lyhördhet</span>
                 </div>
-                <p class="text-sm italic text-slate border-t border-ink/5 pt-4">
+                <p class="text-sm italic border-t border-ink/5 pt-4">
                     "Genom tillit och trygghet skapar vi modet att ta nästa steg framåt."
                 </p>
             </div>
 
+        </div>
+    </div>
+</section>
+<!-- Skills -->
+<section id="skills" class="bg-paper py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-accent font-bold uppercase tracking-widest text-sm mb-4 block">Expertis</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Verktygslådan</h2>
+            <p class="text-slate text-lg max-w-xl mx-auto">
+                En kombination av teknisk logik, pedagogisk metodik och de system jag använder för att driva projekt framåt.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <SkillCategory title="Teknik" skills={techSkills}>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </SkillCategory>
+
+            <SkillCategory title="Pedagogik" skills={pedaSkills}>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </SkillCategory>
+
+            <SkillCategory title="Verktyg" skills={tools}>
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 00-1 1v1a2 2 0 11-4 0v-1a1 1 0 00-1-1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                </svg>
+            </SkillCategory>
         </div>
     </div>
 </section>

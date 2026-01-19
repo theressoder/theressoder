@@ -12,11 +12,11 @@
 }
 
 body {
-    @apply font-body text-ink bg-paper;
+    @apply font-body text-ink/90 bg-paper antialiased;
 }
 
 p {
-    @apply leading-relaxed;
+    @apply leading-relaxed text-ink/80;
 }
 
 h2 {

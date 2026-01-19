@@ -1,8 +1,21 @@
 <script lang="ts">
-	import '../app.css';
-	import favicon from '$lib/assets/favicon.ico';
+    import '../app.css';
+    import favicon from '$lib/assets/favicon.ico';
+	import { fade } from 'svelte/transition';
 
-	let { children } = $props();
+    // Lägg till $state() här för att Svelte ska lyssna på ändringar
+    let isMenuOpen = $state(false);
+
+    function closeMenu() {
+        isMenuOpen = false;
+    }
+
+    const navLinks = [
+        { href: '#about', label: 'Om mig' },
+        { href: '#projects', label: 'Portfolio' },
+        { href: '#skills', label: 'Kompetenser' },
+        { href: '#contact', label: 'Kontakt' }
+    ];
 </script>
 
 <svelte:head>
@@ -15,47 +28,67 @@
 <header class="sticky top-0 z-50 bg-paper/90 backdrop-blur-md px-6 py-4 border-b border-ink/10">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
         
-        <a href="/" class="group">
-            <h1 class="font-heading text-ink text-2xl md:text-3xl tracking-tight transition-all group-hover:text-slate">
+        <a href="/" class="group" on:click={closeMenu}>
+            <h1 class="font-heading text-ink text-2xl md:text-3xl tracking-tight">
                 Theres <span class="font-light">Söder</span>
             </h1>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-slate opacity-70 -mt-1 hidden sm:block">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-ink/60 -mt-1 hidden sm:block">
                 Pedagog & Utvecklare
             </p>
         </a>
 
-        <nav class="hidden md:flex space-x-8 items-center">
-            <a href="/#about" class="text-sm font-bold text-ink hover:text-accent transition-colors relative group">
-                Om mig
-                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:width-full"></span>
-            </a>
-            <a href="/#projects" class="text-sm font-bold text-ink hover:text-accent transition-colors relative group">
-                Projekt
-                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:width-full"></span>
-            </a>
-            <a href="/#contact" class="text-sm font-bold text-ink hover:text-accent transition-colors relative group">
-                Kontakt
-                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:width-full"></span>
-            </a>
+        <nav class="hidden md:flex space-x-8 items-center" aria-label="Huvudnavigering">
+            {#each navLinks as link}
+                <a href="/{link.href}" class="text-sm font-bold text-ink hover:text-accent transition-colors relative group">
+                    {link.label}
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full"></span>
+                </a>
+            {/each}
         </nav>
 
         <div class="md:hidden">
-            <button class="text-ink p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            <button 
+                class="text-ink p-2 focus:outline-none" 
+                on:click={() => isMenuOpen = !isMenuOpen}
+                aria-expanded={isMenuOpen}
+                aria-label="Meny"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-300 {isMenuOpen ? 'rotate-90' : ''}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {#if isMenuOpen}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    {:else}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    {/if}
                 </svg>
             </button>
         </div>
     </div>
+
+    {#if isMenuOpen}
+        <div 
+            transition:fade={{ duration: 200 }}
+            class="md:hidden absolute top-full left-0 w-full bg-paper border-b border-ink/10 shadow-xl py-8 px-6 space-y-6 flex flex-col items-center z-50"
+        >
+            {#each navLinks as link}
+                <a 
+                    href="/{link.href}" 
+                    class="text-2xl font-bold text-ink hover:text-accent transition-colors"
+                    on:click={closeMenu}
+                >
+                    {link.label}
+                </a>
+            {/each}
+        </div>
+    {/if}
 </header>
 <main>
-	{@render children?.()}
+    <slot />
 </main>
 <footer class="bg-paper border-t border-ink/10">
     <section id="contact" class="max-w-6xl mx-auto py-24 px-6 text-center">
         <span class="text-accent font-bold uppercase tracking-widest text-sm mb-4 block">Hör av dig</span>
         <h2 class="text-4xl md:text-5xl font-extrabold text-ink mb-6">Låt oss skapa något tillsammans</h2>
-        <p class="text-slate text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+        <p class="text-lg mb-12 max-w-xl mx-auto leading-relaxed">
             Oavsett om det gäller ett nytt projekt, en pedagogisk utmaning eller om du bara vill byta tankar kring kod och lärande – tveka inte att sträcka ut en hand.
         </p>
         
@@ -70,7 +103,7 @@
                 <span>Maila mig</span>
             </a>
 
-            <a href="https://linkedin.com/in/theres-söder-828092137" target="_blank"
+            <a href="https://linkedin.com/in/theres-söder-828092137" target="_blank" rel="noopener noreferrer"
                 class="group flex items-center space-x-2 text-xl font-bold text-ink hover:text-accent transition-colors">
                 <span class="bg-ink text-paper p-2 rounded-lg group-hover:bg-accent transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -80,7 +113,7 @@
                 <span>LinkedIn</span>
             </a>
 
-            <a href="https://github.com/theressoder" target="_blank"
+            <a href="https://github.com/theressoder" target="_blank" rel="noopener noreferrer"
                 class="group flex items-center space-x-2 text-xl font-bold text-ink hover:text-accent transition-colors">
                 <span class="bg-ink text-paper p-2 rounded-lg group-hover:bg-accent transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -94,9 +127,8 @@
 
     <div class="bg-ink py-8 px-6 text-paper/60 text-sm">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2026 Theres Söder – Analyserande görare i Edsbyn</p>
+            <p>© 2026 Theres Söder | Analyserande görare i Edsbyn</p>
             <div class="flex space-x-6">
-                <p>Baserad i Hälsingland</p>
                 <a href="#about" class="hover:text-paper transition-colors">Tillbaka till toppen ↑</a>
             </div>
         </div>
